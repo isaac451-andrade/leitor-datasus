@@ -14,7 +14,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "leitor_project.settings")
 
 django.setup() # carrega settings e apps
 
-from core.models import Notificacao_datasus
+from src.core.models import Notificacao_datasus
 
 def skip_lines_from(buffer, lines=1):
     for i in range(lines):

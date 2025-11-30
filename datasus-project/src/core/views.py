@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from leitor import *
+from src.leitor import leitor_casos_por_municipio_brasil
 from .models import Notificacao_datasus
 
 def home(request):

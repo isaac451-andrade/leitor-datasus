@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: . 
+      dockerfile: Dockerfile
+    container_name: datasus_web_test
+    env_file:
+      - .env 
+      
+    # Comando de Desenvolvimento (usando runserver conforme configurado no Dockerfile)
+    # Não é necessário definir um 'command' aqui se você já usou o CMD no Dockerfile,
+    # mas se quiser sobrescrever para teste:
+    # command: python src/manage.py runserver 0.0.0.0:8000 
+    
+    volumes:
+      # Mapeia a pasta local para a pasta /app do container (para desenvolvimento local)
+      - .:/app 
+      # Garante a persistência do arquivo db.sqlite3, caso o container seja recriado.
+      - sqlite_data:/app/db.sqlite3 
+      
+    ports:
+      - "8000:8000"
+
+volumes:
+  # Define o volume para persistir o arquivo SQLite
+  sqlite_data:
