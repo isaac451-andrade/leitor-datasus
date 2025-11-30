@@ -282,3 +282,49 @@ tbody tr:last-child td {
     background: #f8d7da;
     color: #721c24;
 }
+
+.search-container {
+    padding: 10px;
+    position: relative;
+
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 45px 15px 20px;
+    border: 2px solid #c3cfe2;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+    background: #f5f7fa;
+    color: #333;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    background: white;
+}
+
+.search-input::placeholder {
+    color: #888;
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #667eea;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+.no-results {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    font-style: italic;
+}

@@ -2,10 +2,8 @@ const fileInput = document.getElementById('fileInput'); // Seu input type="file"
 const fileList = document.getElementById('fileList');   // Sua div para listar os nomes
 const submitBtn = document.getElementById('submitBtn');
 
-// Clique para abrir seletor
 uploadArea.addEventListener('click', () => fileInput.click());
 
-// Prevenir comportamento padrão do drag
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
     uploadArea.addEventListener(eventName, preventDefaults, false);
 });
@@ -28,39 +26,34 @@ function preventDefaults(e) {
   });
 });
 
-// Processar drop (Função adaptada)
 uploadArea.addEventListener('drop', (e) => {
     const droppedFiles = e.dataTransfer.files;
     updateFileDisplay(droppedFiles);
     uploadArea.classList.remove('dragover'); // Remove a classe de highlight
 });
 
-// Processar seleção manual
 fileInput.addEventListener('change', (e) => {
     updateFileDisplay(e.target.files);
 });
 
 
-// Função principal para atualizar o input e a lista visual (Adaptada)
 function updateFileDisplay(files) {
-    // 1. Cria um DataTransfer para gerar o FileList
+
     const data = new DataTransfer();
 
-    // 2. Adiciona os arquivos à DataTransfer
+
     Array.from(files).forEach(file => {
         data.items.add(file);
     });
 
-    // 3. ATRIBUI o FileList ao input do formulário. 
-    // Isso garante que os arquivos (inclusive de drag-and-drop) 
-    // serão enviados na submissão nativa.
+  
     fileInput.files = data.files; 
 
-    // 4. Atualiza a lista visual
+    
     fileList.innerHTML = '';
     const currentFiles = Array.from(fileInput.files);
 
-    // Habilita/Desabilita o botão
+    
     submitBtn.disabled = currentFiles.length === 0;
 
     if (currentFiles.length > 0) {
@@ -106,3 +99,34 @@ function formatFileSize(bytes) {
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
+
+// Filtro de busca na tabela
+document.getElementById('searchInput').addEventListener('input', function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    const tableBody = document.getElementById('data-table-body');
+    const rows = tableBody.getElementsByTagName('tr');
+    let visibleCount = 0;
+
+    for (let row of rows) {
+        const cells = row.getElementsByTagName('td');
+        let found = false;
+
+        
+        for (let cell of cells) {
+            if (cell.textContent.toLowerCase().includes(searchTerm)) {
+                found = true;
+                break;
+            }
+        }
+
+        // Mostra ou esconde a linha
+        if (found) {
+            row.style.display = '';
+            visibleCount++;
+        } else {
+            row.style.display = 'none';
+
+        }
+    }
+
+});

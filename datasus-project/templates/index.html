@@ -32,6 +32,16 @@
     
             <div class="table-container">
                 <div class="table-title">Notificações de Doenças</div>
+                
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Buscar na tabela...">
+                    <i class="bi bi-search search-icon"></i>
+                </div>
+
                 <div class="scrollable-box">
                     <table>
                         <thead>
@@ -42,7 +52,7 @@
                                 <th>Nº Casos</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="data-table-body">
     
                             {% for note in notes %}
                                 <tr>
