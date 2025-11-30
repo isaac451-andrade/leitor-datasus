@@ -1,0 +1,55 @@
+# ----------------------------------------------------------------------
+# Python, Django, e Ambiente Virtual
+# ----------------------------------------------------------------------
+## Ambientes Virtuais e Cache
+.venv/
+env/
+venv/
+__pycache__/
+*.pyc
+*~$
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+
+## Logs e Banco de Dados Local (SQLite)
+*.log
+db.sqlite3
+
+## Arquivos do Django
+# Arquivos que podem conter dados sensíveis ou gerados
+/local_settings.py 
+*.mo
+*.pot
+
+# ----------------------------------------------------------------------
+# Poetry
+# ----------------------------------------------------------------------
+# O .venv/ já ignora a pasta de dependências do Poetry
+# Estes arquivos são usados pelo Poetry para gerenciar o ambiente, 
+# mas não devem ser versionados se você usar o Poetry para criar o ambiente
+# localmente. Mantenha 'pyproject.toml' e 'poetry.lock'
+
+# ----------------------------------------------------------------------
+# Docker e CI/CD
+# ----------------------------------------------------------------------
+## Arquivos gerados pelo Docker
+/docker-compose.override.yml 
+!docker-compose.*.yml # Garante que arquivos como docker-compose.prod.yml sejam incluídos
+*.pem
+*.key
+*.crt
+
+## Contexto de Build
+# Ignora a pasta de builds, se houver
+/builds/
+
+# ----------------------------------------------------------------------
+# Arquivos Gerados de Static e Media
+# ----------------------------------------------------------------------
+# Estes arquivos são gerados no build de produção (collectstatic) e não devem 
+# ser versionados.
+/static_root/
+/media/ 
+/media_root/
