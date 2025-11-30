@@ -176,9 +176,35 @@ input[type="file"] {
     margin-top: 40px;
     background: white;
     border-radius: 15px;
-    overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
+
+
+.scrollable-box{
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 400px;
+}
+
+.scrollable-box::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.scrollable-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.scrollable-box::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.scrollable-box::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 
 .table-title {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -186,15 +212,20 @@ input[type="file"] {
     padding: 20px;
     font-size: 20px;
     font-weight: 600;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    position: relative;
 }
 
 thead {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    position: sticky;
+    top: 0;
 }
 
 th {
@@ -217,7 +248,6 @@ tbody tr {
 
 tbody tr:hover {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-    transform: scale(1.01);
 }
 
 tbody tr:last-child td {
@@ -230,6 +260,12 @@ tbody tr:last-child td {
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
+}
+
+.status-info{
+
+    background: #764ba2;
+    color: #fff; 
 }
 
 .status-success {
