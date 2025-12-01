@@ -36,6 +36,6 @@ COPY templates /app/templates/
 # lide com as migrações (criação do SQLite) e inicie o servidor:
 # 1. python src/manage.py migrate --noinput: Cria o db.sqlite3 e aplica as migrações
 # 2. python src/manage.py runserver 0.0.0.0:${PORT}: Inicia o servidor Django
-CMD ["/bin/bash", "-c", "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:${PORT}"]
+CMD ["/bin/bash", "-c", "poetry run python manage.py migrate --noinput && poetry run python manage.py runserver 0.0.0.0:${PORT}"]
 
 EXPOSE 8000
