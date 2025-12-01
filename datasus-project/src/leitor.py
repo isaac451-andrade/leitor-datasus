@@ -31,7 +31,7 @@ def leitor_casos_por_municipio_brasil(caminho):
 
     periodo = buffer.readline().strip().split(":")[1]
 
-    df = pd.read_csv(buffer, delimiter=";", engine='python', skipfooter=23)
+    df = pd.read_csv(buffer, delimiter=";", engine='python', skipfooter=23, on_bad_lines="skip")
     df_headers = df.columns.tolist()
     print(df_headers)
     for row in df.itertuples(index=False):
