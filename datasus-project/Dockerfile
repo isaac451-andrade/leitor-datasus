@@ -1,5 +1,5 @@
 # Usa uma imagem base Python slim (mais leve e segura)
-FROM python:3.11-slim
+FROM python:3.13-rc-slim
 
 # --- CONFIGURAÇÃO DO AMBIENTE ---
 # Não escreve arquivos de bytecode (.pyc) e garante que a saída do Python não seja bufferizada
