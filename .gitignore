@@ -2,6 +2,7 @@
 # Python, Django, e Ambiente Virtual
 # ----------------------------------------------------------------------
 ## Ambientes Virtuais e Cache
+.env
 .venv/
 env/
 venv/
