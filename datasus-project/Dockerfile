@@ -27,8 +27,7 @@ RUN poetry install --no-root --only main
 COPY src /app/src/
 
 # Copia os arquivos de configuração e estáticos/templates que estão na raiz
-COPY manage.py /app/
-COPY leitor.py /app/src/
+COPY manage.py /app
 COPY static /app/static/
 COPY templates /app/templates/
 
