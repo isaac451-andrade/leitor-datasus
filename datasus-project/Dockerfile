@@ -3,10 +3,9 @@ FROM python:3.11-slim
 
 # --- CONFIGURAÇÃO DO AMBIENTE ---
 # Não escreve arquivos de bytecode (.pyc) e garante que a saída do Python não seja bufferizada
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-# Define a porta de serviço
-ENV PORT 8000
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PORT=8000
 # Define o diretório de trabalho onde o código estará
 WORKDIR /app
 
@@ -29,7 +28,7 @@ COPY src /app/src/
 
 # Copia os arquivos de configuração e estáticos/templates que estão na raiz
 COPY manage.py /app/
-COPY leitor.py /app/
+COPY leitor.py /app/src/
 COPY static /app/static/
 COPY templates /app/templates/
 
